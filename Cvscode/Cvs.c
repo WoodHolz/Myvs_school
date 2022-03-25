@@ -936,7 +936,7 @@ int main()
         return 0;
     }
 #endif
-#if 1
+#if 0
 #include<stdio.h>//P1424 小鱼的航程(改进版)
 int main()
     {
@@ -959,7 +959,7 @@ int main()
         return 0;
     }
 #endif
-#if 0
+#if 1
 #include<stdio.h>
 #include<math.h>
 int main()
