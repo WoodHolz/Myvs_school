@@ -527,19 +527,19 @@ int main()
         char a;
         scanf("%c", &a);
         if(a > ('A' - 1) && a < ('z' + 1)){
-            printf("��ĸ %c", a);
+            printf("锟斤拷母 %c", a);
         }
         else if(a >= '0' && a <= '9'){
-            printf("���� %c", a);
+            printf("锟斤拷锟斤拷 %c", a);
         }
         else{
-            printf("�����ַ� %c", a);
+            printf("锟斤拷锟斤拷锟街凤拷 %c", a);
         }
         return 0;
     }
 #endif
 #if 0
-#include<stdio.h> //P5716 �����?3.��9���·�����
+#include<stdio.h> //P5716 锟斤拷锟斤拷锟?3.锟斤拷9锟斤拷锟铰凤拷锟斤拷锟斤拷
 int main()
     {
         int yr, mon, day;
@@ -593,7 +593,7 @@ int main()
     }
 #endif
 #if 0
-#include<stdio.h>//P1085 [NOIP2004 �ռ���] �����˵Ľ��?
+#include<stdio.h>//P1085 [NOIP2004 锟秸硷拷锟斤拷] 锟斤拷锟斤拷锟剿的斤拷锟?
 int main()
     {
         int a, b, c[10];
@@ -613,7 +613,7 @@ int main()
     }
 #endif
 #if 0
-#include<stdio.h>//P1909 [NOIP2016 �ռ���] ��Ǧ��
+#include<stdio.h>//P1909 [NOIP2016 锟秸硷拷锟斤拷] 锟斤拷铅锟斤拷
 int main()
     {
         int x, a[100], b[100];
@@ -640,7 +640,7 @@ int main()
     }
 #endif
 #if 0
-#include<stdio.h>//P1055 [NOIP2008 �ռ���] ISBN ���� wrong
+#include<stdio.h>//P1055 [NOIP2008 锟秸硷拷锟斤拷] ISBN 锟斤拷锟斤拷 wrong
 #include<string.h>
 int main()
     {
@@ -671,6 +671,7 @@ int main()
 
 #if 0
 #include<stdio.h>
+#include <stdlib.h>
 int main()
     {
         return 0;
@@ -680,7 +681,7 @@ int main()
 
 
 #if 0
-#include<stdio.h>//����(1)
+#include<stdio.h>//锟斤拷锟斤拷(1)
 #include<math.h>
 int main()
     {
@@ -706,7 +707,7 @@ int main()
     }
 #endif
 #if 0
-#include<stdio.h> //�ۺ�(1)
+#include<stdio.h> //锟桔猴拷(1)
 int main()
     {
         float a, b, r;
@@ -745,24 +746,24 @@ int main()
     }
 #endif
 #if 0
-#include<stdio.h>//�ۺ�(2)
+#include<stdio.h>//锟桔猴拷(2)
 #include<string.h>
 #include<math.h>
 int main()
     {
         float a, b, r;
         char c[5];
-        printf("�����������\n");
+        printf("锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟絓n");
         scanf("%s", &c);
         if('+' == c[0] || '-' == c[0] || '*' == c[0] || '/' == c[0] || '%' == c){
-            printf("������������\n");
+            printf("锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷\n");
             scanf("%f %f", &a, &b);
             switch (c[0]){
             case '+': r = a + b; break;
             case '-': r = a - b; break;
             case '*': r = a * b; break;
             case '/':if(0 == b){
-                    printf("����Ϊ��");
+                    printf("锟斤拷锟斤拷为锟斤拷");
                     return 0;
                 }
                 else{
@@ -771,7 +772,7 @@ int main()
                 break;
             case '%':
                 if(0 == b){
-                    printf("����Ϊ��");
+                    printf("锟斤拷锟斤拷为锟斤拷");
                     return 0;
                 }
                 else{
@@ -781,7 +782,7 @@ int main()
             }
         }
         else{
-            printf("������һ����\n");
+            printf("锟斤拷锟斤拷锟斤拷一锟斤拷锟斤拷\n");
             scanf("%f", &a);
             switch (c[0])
             {
@@ -798,7 +799,7 @@ int main()
                     r = cos(a);
                 }
                 else{
-                    printf("�޴�����:(");
+                    printf("锟睫达拷锟斤拷锟斤拷:(");
                     return 0;
                 }
                 break;
@@ -807,7 +808,7 @@ int main()
                     r = tan(a);
                 }
                 else{
-                    printf("�޴�����:(");
+                    printf("锟睫达拷锟斤拷锟斤拷:(");
                     return 0;
                 }
                 break;
@@ -816,16 +817,16 @@ int main()
                     r = exp(a);
                 }
                 else{
-                    printf("�޴�����:(");
+                    printf("锟睫达拷锟斤拷锟斤拷:(");
                     return 0;
                 }
                 break;
             default:
-                printf("�޴�����:(");
+                printf("锟睫达拷锟斤拷锟斤拷:(");
                 return 0;
             }
         }
-        printf("���Ϊ��\n%f", r);
+        printf("锟斤拷锟轿拷锟絓n%f", r);
         return 0;
     }
 #endif
@@ -846,7 +847,7 @@ int main()
     }
 #endif
 #if 0
-#include<stdio.h>//mooc ��������
+#include<stdio.h>//mooc 锟斤拷锟斤拷锟斤拷锟斤拷
 int main()
     {
         int d;
@@ -854,32 +855,32 @@ int main()
         switch (d)
         {
         case 0:
-            printf("������");
+            printf("锟斤拷锟斤拷锟斤拷");
             break;
         case 1:
-            printf("����һ");
+            printf("锟斤拷锟斤拷一");
             break;
         case 2:
-            printf("���ڶ�");
+            printf("锟斤拷锟节讹拷");
             break;
         case 3:
-            printf("������");
+            printf("锟斤拷锟斤拷锟斤拷");
             break;
         case 4:
-            printf("������");
+            printf("锟斤拷锟斤拷锟斤拷");
             break;
         case 5:
-            printf("������");
+            printf("锟斤拷锟斤拷锟斤拷");
             break;
         case 6:
-            printf("������");
+            printf("锟斤拷锟斤拷锟斤拷");
             break;
         }
         return 0;
     }
 #endif
 #if 0
-#include<stdio.h>//mooc �������ж�
+#include<stdio.h>//mooc 锟斤拷锟斤拷锟斤拷锟叫讹拷
 int main()
     {
         int a;
@@ -906,19 +907,19 @@ int main()
         switch (x)
         {
         case 0:
-            printf("ͣ");
+            printf("停");
             break;
         case 1:
-            printf("��");
+            printf("锟斤拷");
             break;
         default:
-            printf("�ȴ�");
+            printf("锟饺达拷");
         }
         return 0;
     }
 #endif
 #if 0
-#include<stdio.h>//P1422 С��ҵĵ��
+#include<stdio.h>//P1422 小锟斤拷业牡锟斤拷
 int main()
     {
         float a;
@@ -937,7 +938,7 @@ int main()
     }
 #endif
 #if 0
-#include<stdio.h>//P1424 С��ĺ���?(�Ľ���)
+#include<stdio.h>//P1424 小锟斤拷暮锟斤拷锟?(锟侥斤拷锟斤拷)
 int main()
     {
         int a, b, n;
@@ -960,7 +961,7 @@ int main()
     }
 #endif
 #if 0
-#include<stdio.h> //P1888 ���Ǻ���
+#include<stdio.h> //P1888 锟斤拷锟角猴拷锟斤拷
 #include<math.h>
 int main()
     {
@@ -987,7 +988,7 @@ int main()
     }
 #endif
 #if 0
-#include<stdio.h>//P1046 [NOIP2005 �ռ���] ����ժƻ��
+#include<stdio.h>//P1046 [NOIP2005 锟秸硷拷锟斤拷] 锟斤拷锟斤拷摘苹锟斤拷
 int main()
     {
         int arr[10], h, n = 0;
@@ -1111,7 +1112,7 @@ int main()
     }
 #endif
 #if 0
-#include<stdio.h>//rhe 3rd experiment part1 7
+#include<stdio.h>//rhe 3rd experiment part1 7 wrong
 int main()
     {
         int r;
@@ -1152,7 +1153,7 @@ int main()
     }
 #endif
 #if 0
-#include<stdio.h>//the 3rd experiment part3 1 ԭ��P5711 �����3.��3�������ж�
+#include<stdio.h>//the 3rd experiment part3 1 原题P5711 【深基3.例3】闰年判断
 int main()
     {
         int y, a = 0;
@@ -1223,7 +1224,7 @@ int main()
     }
 #endif
 #if 0
-#include<stdio.h>
+#include<stdio.h>//the 3rd experiment part2 2
 int main()
     {
         int a, arr[7];
@@ -1241,6 +1242,67 @@ int main()
                 }
                 break;
             }
+        }
+        return 0;
+    }
+#endif
+#if 0
+#include<stdio.h> //move left
+#include <stdlib.h>
+int main()
+    {
+        int n, m, arr[1000], *p = NULL;
+        scanf("%d %d", &n, &m);
+        for(int i = 0; i < n; ++i){
+            scanf("%d", &arr[i]);
+        }
+        for(int k = 0; k < m; ++k){
+            p = &arr[0];
+            int t = arr[0];
+            for(int I = 0; I < n - 1; ++I){
+                *(p + I) = *(p + I + 1);
+                }
+            arr[n - 1] = t;
+        }
+        int count = 0;
+        for(int II = 0; II < n; ++II){
+            printf("%d", arr[II]);
+            ++count;
+            if(count < n) printf(" ");
+        }
+        return 0;
+        free(p);
+        p = NULL;
+    }
+#endif
+#if 1
+#include<stdio.h>
+#include <stdlib.h>
+int main()
+    {
+        int arr[10][10];
+        for(int r = 0; r < 4; ++r){
+            for(int c = 0; c < 5; ++c){
+                scanf("%d", &arr[r][c]);
+            }
+        }
+        for(int c = 0; c < 5; ++c){
+            for(int r = 0; r < 4; ++r){
+                for(int t = r; t < 4 - r; ++t){
+                    int temp = 0;
+                    if(arr[t][c] < arr[t + 1][c]){
+                    temp = arr[t + 1][c]; 
+                    arr[t + 1][c] = arr[t][c];
+                    arr[t][c] = temp;
+                    }
+                }
+            }
+        }
+        for(int r = 0; r < 4; ++r){
+            for(int c = 0; c < 5; ++c){
+                printf("%d", arr[r][c]);
+            }
+            printf("\n");
         }
         return 0;
     }
