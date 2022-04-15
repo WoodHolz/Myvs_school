@@ -527,19 +527,19 @@ int main()
         char a;
         scanf("%c", &a);
         if(a > ('A' - 1) && a < ('z' + 1)){
-            printf("×ÖÄ¸ %c", a);
+            printf("ï¿½ï¿½Ä¸ %c", a);
         }
         else if(a >= '0' && a <= '9'){
-            printf("Êý×Ö %c", a);
+            printf("ï¿½ï¿½ï¿½ï¿½ %c", a);
         }
         else{
-            printf("ÆäËû×Ö·û %c", a);
+            printf("ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ %c", a);
         }
         return 0;
     }
 #endif
 #if 0
-#include<stdio.h> //P5716 ¡¾Éî»ù3.Àý9¡¿ÔÂ·ÝÌìÊý
+#include<stdio.h> //P5716 ï¿½ï¿½ï¿½ï¿½ï¿?3.ï¿½ï¿½9ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½
 int main()
     {
         int yr, mon, day;
@@ -593,7 +593,7 @@ int main()
     }
 #endif
 #if 0
-#include<stdio.h>//P1085 [NOIP2004 ÆÕ¼°×é] ²»¸ßÐËµÄ½ò½ò
+#include<stdio.h>//P1085 [NOIP2004 ï¿½Õ¼ï¿½ï¿½ï¿½] ï¿½ï¿½ï¿½ï¿½ï¿½ËµÄ½ï¿½ï¿?
 int main()
     {
         int a, b, c[10];
@@ -613,7 +613,7 @@ int main()
     }
 #endif
 #if 0
-#include<stdio.h>//P1909 [NOIP2016 ÆÕ¼°×é] ÂòÇ¦±Ê
+#include<stdio.h>//P1909 [NOIP2016 ï¿½Õ¼ï¿½ï¿½ï¿½] ï¿½ï¿½Ç¦ï¿½ï¿½
 int main()
     {
         int x, a[100], b[100];
@@ -640,7 +640,7 @@ int main()
     }
 #endif
 #if 0
-#include<stdio.h>//P1055 [NOIP2008 ÆÕ¼°×é] ISBN ºÅÂë wrong
+#include<stdio.h>//P1055 [NOIP2008 ï¿½Õ¼ï¿½ï¿½ï¿½] ISBN ï¿½ï¿½ï¿½ï¿½ wrong
 #include<string.h>
 int main()
     {
@@ -671,6 +671,7 @@ int main()
 
 #if 0
 #include<stdio.h>
+#include <stdlib.h>
 int main()
     {
         return 0;
@@ -680,7 +681,7 @@ int main()
 
 
 #if 0
-#include<stdio.h>//ÌáÉý(1)
+#include<stdio.h>//ï¿½ï¿½ï¿½ï¿½(1)
 #include<math.h>
 int main()
     {
@@ -706,7 +707,7 @@ int main()
     }
 #endif
 #if 0
-#include<stdio.h> //×ÛºÏ(1)
+#include<stdio.h> //ï¿½Ûºï¿½(1)
 int main()
     {
         float a, b, r;
@@ -745,24 +746,24 @@ int main()
     }
 #endif
 #if 0
-#include<stdio.h>//×ÛºÏ(2)
+#include<stdio.h>//ï¿½Ûºï¿½(2)
 #include<string.h>
 #include<math.h>
 int main()
     {
         float a, b, r;
         char c[5];
-        printf("ÇëÊäÈëÔËËã·û\n");
+        printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\n");
         scanf("%s", &c);
         if('+' == c[0] || '-' == c[0] || '*' == c[0] || '/' == c[0] || '%' == c){
-            printf("ÇëÊäÈëÁ½¸öÊý\n");
+            printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\n");
             scanf("%f %f", &a, &b);
             switch (c[0]){
             case '+': r = a + b; break;
             case '-': r = a - b; break;
             case '*': r = a * b; break;
             case '/':if(0 == b){
-                    printf("³ýÊýÎªÁã");
+                    printf("ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½");
                     return 0;
                 }
                 else{
@@ -771,7 +772,7 @@ int main()
                 break;
             case '%':
                 if(0 == b){
-                    printf("³ýÊýÎªÁã");
+                    printf("ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½");
                     return 0;
                 }
                 else{
@@ -781,7 +782,7 @@ int main()
             }
         }
         else{
-            printf("ÇëÊäÈëÒ»¸öÊý\n");
+            printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½\n");
             scanf("%f", &a);
             switch (c[0])
             {
@@ -798,7 +799,7 @@ int main()
                     r = cos(a);
                 }
                 else{
-                    printf("ÎÞ´ËÔËËã:(");
+                    printf("ï¿½Þ´ï¿½ï¿½ï¿½ï¿½ï¿½:(");
                     return 0;
                 }
                 break;
@@ -807,7 +808,7 @@ int main()
                     r = tan(a);
                 }
                 else{
-                    printf("ÎÞ´ËÔËËã:(");
+                    printf("ï¿½Þ´ï¿½ï¿½ï¿½ï¿½ï¿½:(");
                     return 0;
                 }
                 break;
@@ -816,16 +817,16 @@ int main()
                     r = exp(a);
                 }
                 else{
-                    printf("ÎÞ´ËÔËËã:(");
+                    printf("ï¿½Þ´ï¿½ï¿½ï¿½ï¿½ï¿½:(");
                     return 0;
                 }
                 break;
             default:
-                printf("ÎÞ´ËÔËËã:(");
+                printf("ï¿½Þ´ï¿½ï¿½ï¿½ï¿½ï¿½:(");
                 return 0;
             }
         }
-        printf("½á¹ûÎª£º\n%f", r);
+        printf("ï¿½ï¿½ï¿½Îªï¿½ï¿½\n%f", r);
         return 0;
     }
 #endif
@@ -846,7 +847,7 @@ int main()
     }
 #endif
 #if 0
-#include<stdio.h>//mooc ÐÇÆÚÍÆËã
+#include<stdio.h>//mooc ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 int main()
     {
         int d;
@@ -854,32 +855,32 @@ int main()
         switch (d)
         {
         case 0:
-            printf("ÐÇÆÚÌì");
+            printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
             break;
         case 1:
-            printf("ÐÇÆÚÒ»");
+            printf("ï¿½ï¿½ï¿½ï¿½Ò»");
             break;
         case 2:
-            printf("ÐÇÆÚ¶þ");
+            printf("ï¿½ï¿½ï¿½Ú¶ï¿½");
             break;
         case 3:
-            printf("ÐÇÆÚÈý");
+            printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
             break;
         case 4:
-            printf("ÐÇÆÚËÄ");
+            printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
             break;
         case 5:
-            printf("ÐÇÆÚÎå");
+            printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
             break;
         case 6:
-            printf("ÐÇÆÚÁù");
+            printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
             break;
         }
         return 0;
     }
 #endif
 #if 0
-#include<stdio.h>//mooc ÌØÕ÷ÊýÅÐ¶Ï
+#include<stdio.h>//mooc ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½
 int main()
     {
         int a;
@@ -909,16 +910,16 @@ int main()
             printf("Í£");
             break;
         case 1:
-            printf("ÐÐ");
+            printf("ï¿½ï¿½");
             break;
         default:
-            printf("µÈ´ý");
+            printf("ï¿½È´ï¿½");
         }
         return 0;
     }
 #endif
 #if 0
-#include<stdio.h>//P1422 Ð¡Óñ¼ÒµÄµç·Ñ
+#include<stdio.h>//P1422 Ð¡ï¿½ï¿½ÒµÄµï¿½ï¿½
 int main()
     {
         float a;
@@ -937,7 +938,7 @@ int main()
     }
 #endif
 #if 0
-#include<stdio.h>//P1424 Ð¡ÓãµÄº½³Ì(¸Ä½ø°æ)
+#include<stdio.h>//P1424 Ð¡ï¿½ï¿½Äºï¿½ï¿½ï¿?(ï¿½Ä½ï¿½ï¿½ï¿½)
 int main()
     {
         int a, b, n;
@@ -959,25 +960,350 @@ int main()
         return 0;
     }
 #endif
-#if 1
-#include<stdio.h>
+#if 0
+#include<stdio.h> //P1888 ï¿½ï¿½ï¿½Çºï¿½ï¿½ï¿½
 #include<math.h>
 int main()
     {
         int a, b, c;
         scanf("%d %d %d", &a, &b, &c);
-        int t;
+        int t = 0;
         if(b < c){
-            t = c;
-            c = b;
-            b = t;
+            t = b; b = c; c = t;
             if(a < b){
-                t = b;
-                b = a;
-                a = t;
+                t = a; a = b; b = t;
+            }
+                if(b < c){
+                    t = b; b = c; c = t;
+                }
+        }
+        for(int i = 1; i < c + 1; ++i){
+            if(a % i == 0 && c %i == 0){
+                a = a / i;
+                c = c / i;
             }
         }
-        for(int i = 0; b < c; )
+        printf("%d/%d", c, a);
+        return 0;
+    }
+#endif
+#if 0
+#include<stdio.h>//P1046 [NOIP2005 ï¿½Õ¼ï¿½ï¿½ï¿½] ï¿½ï¿½ï¿½ï¿½ÕªÆ»ï¿½ï¿½
+int main()
+    {
+        int arr[10], h, n = 0;
+        for(int i = 0; i < 10; ++i){
+            scanf("%d", &arr[i]);
+        }
+        scanf("%d", &h);
+        h += 30;
+        for(int ii = 0; ii < 10; ++ii){
+            if(h >= arr[ii]){
+                ++n;
+            }
+        }
+        printf("%d", n);
+        return 0;
+    }
+#endif
+#if 0
+#include<stdio.h> //P4414 [COCI2006-2007#2] ABC
+int main()
+    {
+        int a, b, c, t;
+        scanf("%d %d %d", &a, &b, &c);
+        if(a > b){
+            t = a; a = b; b = t;
+        }
+        if(b > c){
+            t = b; b = c; c = t;
+        }
+        if(a > b){
+                t = b; b = a; a = t;
+        }
+        char arr[101];
+        scanf("%s", arr);
+        for(int m = 0; m < 3; ++m){
+            switch (arr[m])
+            {
+            case 'A': printf("%d", a); printf(" "); break;
+            case 'B': printf("%d", b); printf(" "); break;
+            case 'C': printf("%d", c); printf(" "); break;
+            }
+        }
+        return 0;
+    }
+#endif
+#if 0
+#include<stdio.h>//the 3rd experiment part1 1
+    int main()
+    {
+        float s;
+        float i = 1;
+        for(i = 1; ; 1 + i){
+            s += 1 / i;
+            ++i;
+            if(s > 15){
+                break;
+            }
+        }
+        printf("%.0f %f", i, s);
+        return 0;
+    }
+#endif
+#if 0
+#include<stdio.h> //the 3rd experiment part1 2 code copy
+#include<math.h>
+    int main()
+    {
+        double s = 0;
+        int a;
+        for(int i = 1;  ; ++i){
+            switch (i % 2)
+            {
+            case 0: a = -1; break;
+            default: a = 1; break;
+            }
+            double m = 1;
+            for(int ii = 1; ii <= i; ++ii){
+                m *= ii;
+            }
+            if(1 / m <= 1e-6) break;
+            s = s + a / m;
+        }
+    printf("%lf", s);
+    return 0;
+    }
+#endif
+#if 0
+#include<stdio.h>//the 3rd experiment part1 3 
+    int pn(int a){
+        for(int i = 2; i <= a / 2.0; ++i){
+            if(0 == a % i){
+				return 0;
+			}
+        }
+        return 1;
+    }
+    int main()
+    {
+        int n = 0;
+        for(int ii = 100; ii <= 200; ++ii){
+            if(pn(ii) && pn(ii + 2)){
+                printf("%d %d\n", ii, ii + 2);
+            }
+        }
+    return 0;
+    }
+#endif
+#if 0
+#include<stdio.h>//the 3rd experiment part1 5
+    int main()
+    {
+        float i = 0.0002;
+        for(int n = 1 ; ; ++n){
+            i *= 2;
+            if(i > 8848){
+                printf("%d", n);
+                break;
+            }
+        }
+        return 0;
+    }
+#endif
+#if 0
+#include<stdio.h>//rhe 3rd experiment part1 7 wrong
+int main()
+    {
+        int r;
+        scanf("%d", &r);
+        for(int i = 0; i < (r + 1) / 2; ++i){
+            for(int ii = 0; ii < (r + 1) / 2 - i; ++ii){
+                printf(" ");
+            }
+        if(0 == i){
+            printf("*\n");
+        }
+        else{
+            printf("*");
+            for(int iii = 0; iii < (i - 1) * 2 - 1; ++iii){
+                printf("+");
+            }
+            printf("*");
+            printf("\n");
+        }
+        for(int I = 0; I < r / 2; ++I){
+            for(int II = 0; II < I; ++II){
+                printf(" ");
+            }
+            if(I == r / 2 - 1){
+                printf("*\n");
+            }
+            else{
+                printf("*");
+                for(int III = 0; III < (r / 2 - I) * 2 - 1; ++III){
+                    printf("+");
+                }
+                printf("*");
+                printf("\n");
+            }
+        }
+        }
+        return 0;
+    }
+#endif
+#if 0
+#include<stdio.h>//the 3rd experiment part3 1 Ô­ÌâP5711 ¡¾Éî»ù3.Àý3¡¿ÈòÄêÅÐ¶Ï
+int main()
+    {
+        int y, a = 0;
+        scanf("%d", &y);
+        if(y < 1582){
+            return 0;
+        }
+        else{
+            if((y % 4 == 0 && y %100 !=0) || (y % 400 == 0)){
+                a = 1;
+            }
+        }
+        printf("%d", a);
+        return 0;
+    }
+#endif
+#if 0
+#include<stdio.h> //the 3rd experiment part3 2
+int main()
+    {
+        int yr, mon, day, d;
+        scanf("%d %d %d", &yr, &mon, &d);
+        switch (mon)
+        {
+        case 1: day = 31; break;
+        case 2:
+            if((yr % 4 == 0 && yr % 100 != 0)||(yr % 400 == 0)){
+                day = 29;
+                }
+            else{
+                day = 28;
+            }
+            break;
+        case 3: day = 31; break;
+        case 4: day = 30; break;
+        case 5: day = 31; break;
+        case 6: day = 30; break;
+        case 7: day = 31; break;
+        case 8: day = 31; break;
+        case 9: day = 30; break;
+        case 10: day = 31; break;
+        case 11: day = 30; break;
+        case 12: day = 31; break;
+        }
+        if(d <= day && d > 0 && mon > 0 && mon < 13){
+            printf("correct date");
+        }
+        else printf("wrong date");
+        return 0;
+    }
+#endif
+#if 0
+#include<stdio.h>//the 3rd experiment part2 2
+int main()
+    {
+        char a[] = {'A', 'B', 'C'};
+        char b[] = {'X', 'Y', 'Z'};
+        int i = 0;
+        while (i < 3){
+            for(int ii = 0; ii < 3; ++ii){
+                if(! (a[i] == 'A' && b[ii] == 'X' || a[i] == 'C' && ('X' == b[ii] || 'Z' == b[ii]))){
+                    printf("%c %c\n", a[i], b[ii]);
+                }
+            }
+            ++i;
+        }
+        return 0;
+    }
+#endif
+#if 0
+#include<stdio.h>//the 3rd experiment part2 2
+int main()
+    {
+        int a, arr[7];
+        for(a = 1; a < 16; ++a){
+            int s = 0, t = a;
+            arr[0] = a; 
+            for(int b = 1; b < 7; ++b){
+                t += b;
+                s += t;
+                arr[b] = t;
+            }
+            if(s == 105){
+                for(int ii = 0; ii < 7; ++ii){
+                    printf("%d ", arr[ii]);
+                }
+                break;
+            }
+        }
+        return 0;
+    }
+#endif
+#if 0
+#include<stdio.h> //move left
+#include <stdlib.h>
+int main()
+    {
+        int n, m, arr[1000], *p = NULL;
+        scanf("%d %d", &n, &m);
+        for(int i = 0; i < n; ++i){
+            scanf("%d", &arr[i]);
+        }
+        for(int k = 0; k < m; ++k){
+            p = &arr[0];
+            int t = arr[0];
+            for(int I = 0; I < n - 1; ++I){
+                *(p + I) = *(p + I + 1);
+                }
+            arr[n - 1] = t;
+        }
+        int count = 0;
+        for(int II = 0; II < n; ++II){
+            printf("%d", arr[II]);
+            ++count;
+            if(count < n) printf(" ");
+        }
+        return 0;
+        free(p);
+        p = NULL;
+    }
+#endif
+#if 1
+#include<stdio.h>
+#include <stdlib.h>
+int main()
+    {
+        int arr[10][10];
+        for(int r = 0; r < 4; ++r){
+            for(int c = 0; c < 5; ++c){
+                scanf("%d", &arr[r][c]);
+            }
+        }
+        for(int c = 0; c < 5; ++c){
+            for(int r = 0; r < 4; ++r){
+                for(int t = r; t < 4 - r; ++t){
+                    int temp = 0;
+                    if(arr[t][c] < arr[t + 1][c]){
+                    temp = arr[t + 1][c]; 
+                    arr[t + 1][c] = arr[t][c];
+                    arr[t][c] = temp;
+                    }
+                }
+            }
+        }
+        for(int r = 0; r < 4; ++r){
+            for(int c = 0; c < 5; ++c){
+                printf("%d", arr[r][c]);
+            }
+            printf("\n");
+        }
         return 0;
     }
 #endif
