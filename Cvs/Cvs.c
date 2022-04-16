@@ -671,7 +671,7 @@ int main()
 
 #if 0
 #include<stdio.h>
-#include <stdlib.h>
+#include<stdlib.h>
 int main()
     {
         return 0;
@@ -1275,22 +1275,34 @@ int main()
         p = NULL;
     }
 #endif
-#if 1
-#include<stdio.h>
+#if 0
+#include<stdio.h> // 二维数组每列排序
 #include <stdlib.h>
 int main()
     {
         int arr[10][10];
-        for(int r = 0; r < 4; ++r){
+        for(int r = 0; r < 4; ++r){ //enter data
             for(int c = 0; c < 5; ++c){
                 scanf("%d", &arr[r][c]);
             }
         }
+        /*
+        for(int r = 0; r < 4; ++r){ // check entered data
+            int count = 0;
+            for(int c = 0; c < 5; ++c){
+                printf("%d", arr[r][c]);
+                ++count;
+                if(count < 5) printf(" ");
+            }
+            printf("\n");
+        }
+        */
+        
         for(int c = 0; c < 5; ++c){
-            for(int r = 0; r < 4; ++r){
-                for(int t = r; t < 4 - r; ++t){
+            for(int r = 0; r < 4 - 1; ++r){
+                for(int t = 0; t < 4 - 1 - r ; ++t){
                     int temp = 0;
-                    if(arr[t][c] < arr[t + 1][c]){
+                    if(arr[t][c] > arr[t + 1][c]){
                     temp = arr[t + 1][c]; 
                     arr[t + 1][c] = arr[t][c];
                     arr[t][c] = temp;
@@ -1298,12 +1310,61 @@ int main()
                 }
             }
         }
+        int count = 0;
         for(int r = 0; r < 4; ++r){
+            
             for(int c = 0; c < 5; ++c){
-                printf("%d", arr[r][c]);
+                printf("%4d", arr[r][c]);
             }
-            printf("\n");
+            ++count;
+            if(count < 4) printf("\n");
         }
         return 0;
+    }
+#endif
+#if 0
+#include<stdio.h> //字符串的连接
+#include<stdlib.h>
+#include<string.h>
+int main()
+    {
+        char a[41];
+        char b[41];
+        gets(a); gets(b);
+        printf("%s%s", a, b);
+        return 0;
+    }
+#endif
+#if 0
+#include<stdio.h>
+#include<stdlib.h>
+int main(){
+    int a=5,b=8,t;
+    int *pa,*pb;
+    pa=&a; pb=&b;
+    printf("%ld,%ld\n",&a,&b);
+    printf("%ld,%ld\n",pa,pb);
+    t=*pa;  *pa=*pb;  *pb=t;
+    printf("%d,%d\n",a,b);
+    return 0;
+    free(pa); free(pb);
+    pa = NULL; pb = NULL;    
+}
+#endif
+#if 0
+#include<stdio.h>//指针与地址
+#include<stdlib.h>
+int main()
+    {
+        int a, b;
+        scanf("%d %d", &a, &b);
+        printf("a=%d,b=%d\n", a, b);
+        int *p1 = NULL, *p2 = NULL;
+        p1 = &a; p2 = &b;
+        *p1 ^= *p2 ^= *p1 ^= *p2;
+        printf("a=%d,b=%d", *p1, *p2);
+        return 0;
+        free(p1);free(p2);
+        p1 = NULL; p2 = NULL;
     }
 #endif
