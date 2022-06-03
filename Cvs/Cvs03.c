@@ -99,10 +99,13 @@ main()
         scanf("%d", &m);
         getchar();
         hs(leader, m);
+        struct yrname temp;
         for(int i = 0; i < 3 - 1; ++i){
             for(int ii = i + 1; ii < 3; ++ii){
                 if(leader[i].count < leader[ii].count){
-                    leader[i].count ^= leader[ii].count ^= leader[i].count ^= leader[ii].count;
+                    temp = leader[i];
+                    leader[i] = leader[ii];
+                    leader[ii] = temp;
                 }
             }
         }
@@ -309,6 +312,205 @@ void cute()
 int main()
     {
         cute();
+        return 0;
+    }
+#endif
+
+#if 0
+//未完成 请继续完成递归
+#include<stdio.h> //Luogu P5461 赦免战俘
+#include<math.h>
+int excuse()
+{
+    int n; 
+    scanf("%d", &n);
+    int r = pow(2, n), c = r;
+    int a[100][100] = {0};
+    
+    while(1){
+        if(n - 1){
+            int r1 = pow(2, n - 1);
+            int c1 = r1;
+            //upleft
+            for(int i = 0; i < r1; ++i){
+                for(int j = 0; j < c1; ++j){
+                    a[i][j] = 1;
+                }
+            }
+            //upright 
+            for(int );
+        }
+        else break;
+    }
+/*
+    a[0][n + 1] = 1;
+    for(int i = 1; i < r; ++i){
+        for(int j = 1; j < c; ++j){
+            a[i][j] = a[i - 1][j] ^ a[i - 1][j + 1];
+        }
+    }
+*/
+    for(int i = 0; i < r; ++i){
+        int bl = 0;
+        for(int j = 0; j < c; ++j){
+            a[i][j] == 1 ? printf("0") : printf("1"); bl++;
+            if(bl < c) printf(" ");
+            if(j == c - 1) printf("\n");
+        }
+    }
+}
+int main()
+    {
+        //int n;
+        //scanf("%d", &n);
+        excuse();
+        return 0;
+    }
+#endif
+
+#if 0
+#include<stdio.h> //Luogu P5743 【深基7.习8】猴子吃桃
+void peech()
+{
+    int n;
+    scanf("%d", &n);
+    int sum = 1;
+    for(int i = 1; i < n; ++i){
+        sum = (sum + 1) * 2;
+    }
+    printf("%d", sum);
+}
+int main()
+    {
+        peech();
+        return 0;
+    }
+#endif
+
+#if 0
+#include<stdio.h> //Luogu P5733 【深基6.例1】自动修正
+int main()
+    {
+        char a[100];
+        int n = 0;
+        char in = getchar();
+        while(in != '\n'){
+            a[n++] = in;
+            in = getchar();
+        }
+        for(int i = 0; i < n; ++i){
+            if(a[i] >= 'a' && a[i] <= 'z'){
+                a[i] -= 32;
+            }
+        }
+        printf("%s", a);
+        return 0;
+    }
+#endif
+
+#if 0
+#include<stdio.h> //PTA 7-1 成绩排名
+struct stu
+{
+    int num; //学号
+    float grade; //成绩
+};
+void sort(struct stu *ps, int n)
+{
+    struct stu t;
+    for(int i = 0; i < n - 1; ++i){ //冒泡  什么时候能熟练快排啊啊啊啊啊笑
+        for(int ii = i; ii < n; ++ii){
+            if(ps[i].grade < ps[ii].grade){
+                t = ps[i]; ps[i] = ps[ii]; ps[ii] = t;
+            }
+        }
+    }
+    //output
+    
+    int rank = 0; //处理并列的方法一
+    for(int i = 0; i < n; ++i){ 
+        if(ps[i].grade != ps[i - 1].grade){
+            rank = i;
+            printf("%d %d %.2f\n", rank + 1, ps[i].num, ps[i].grade);
+        }
+        else printf("%d %d %.2f\n", rank + 1, ps[i].num, ps[i].grade);
+    }
+    
+    /*
+    for(int i = 0; i < n; ++i){ //处理并列的方法二 wrong
+        int t = 0;
+        if(ps[i].grade == ps[i - 1].grade){
+            t++;
+        }
+        printf("%d %d %.2f\n", i - t + 1, ps[i].num, ps[i].grade);
+    }
+    */
+}
+
+main()
+    {
+        struct stu ps[100];
+        int n; //学生人数
+        scanf("%d", &n);
+        for(int i = 0; i < n; ++i){
+            scanf("%d", &ps[i].num);
+            scanf("%f", &ps[i].grade);
+        }
+        sort(&ps, n);
+        return 0;
+    }
+#endif
+
+#if 0
+#include<stdio.h> //PTA 7-3 共用体类型应用
+struct employee
+{
+    int num;
+    char name[50];
+    char sort;
+    char part[50];
+};
+void input(struct employee school[], int n)
+{
+    for(int i = 0; i < n; ++i){
+        scanf("%d %s %c", &school[i].num, school[i].name, &school[i].sort);
+        gets(school[i].part);
+        //gets(school[i].num);
+        //getchar();
+        //gets(school[i].name);
+        //getchar();
+        //scanf("%c", &school[i].sort);
+        //gets(school[i].part);
+        //getchar();
+    }
+}
+void sort(struct employee school[], int n)
+{
+    int a = 0, b = 0;
+    for(int i = 0; i < n; ++i){
+        if(school[i].sort == 't'){
+            a++;
+        }
+        else if(school[i].sort == 'w'){
+            b++;
+        }
+    }
+    printf("tcount = %d, wcount = %d", a, b);
+}
+main()
+    {
+        struct employee school[50];
+        int n;
+        scanf("%d", &n);
+        input(school, n);
+        //output
+        for(int i = 0; i < n; ++i){
+            printf("%d ", school[i].num);
+            printf("%s ", school[i].name);
+            printf("%c", school[i].sort);
+            printf("%s\n", school[i].part);
+        }
+        sort(school, n);
         return 0;
     }
 #endif
