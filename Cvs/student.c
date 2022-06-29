@@ -7,8 +7,8 @@ void menu() //功能表
         printf("*****************欢迎来到学生管理系统!******************\n"
                 " <1>添加学生数据    <2>修改学生数据    <3>删除学生信息\n"
                 " <4>查询学生成绩    <5>学生成绩排名    <6>显示所有学生\n"
-                " <7>刷新系统页面    <8>退出管理系统并保存\n"
-                "*********************************************************\n");
+                " <7>刷新系统页面    <8>清空文件数据    <9>退出管理系统\n"
+                "********************************************************\n");
     }
 
 
@@ -31,20 +31,20 @@ creat() //<1>添加学生数据
             //p1 = (struct student *)malloc(sizeof(struct student));
             //输入数据
             printf("\n请输入学号:");
-            scanf("%s", (*p1).stn);
+            scanf("%s", p1->stn);
             getchar();
             printf("\n请输入名字:");
-            gets((*p1).name);
+            gets(p1->name);
             printf("\n请输入性别(m/f):");
-            scanf("%c", &(*p1).gender);
+            scanf("%c", &p1->gender);
             printf("\n请输入语文,数学,外语成绩:");
-            scanf("%d %d %d", &(*p1).grade[1], &(*p1).grade[2], &(*p1).grade[3]);
+            scanf("%d %d %d", &p1->grade[0], &p1->grade[1], &p1->grade[2]);
             if(head == NULL){
                 head = p1;
                 p2 = p1;
             }
             else{
-                (*p2).next = p1;
+                p2->next = p1;
                 p2 = p1;
             }
 
@@ -54,7 +54,7 @@ creat() //<1>添加学生数据
             scanf("%d", &jd);
             if(jd == 0){
                 
-                (*p2).next = NULL;
+                p2->next = NULL;
                 break;
                 
             }            
@@ -64,15 +64,15 @@ creat() //<1>添加学生数据
         //stu *p = NULL;
         p = head;
         while(p != NULL){
-            printf("%s\n", (*p).name);
-            p = (*p).next;
+            printf("%s\n", p->name);
+            p = p->next;
         }
         */
         
         
         //printf("\n%p", head);
         return (head);
-        //free(p1);
+        free(p1);
     }
 
 
@@ -87,7 +87,7 @@ fix(stu *aim)//<2>修改学生数据
         getchar();
         gets(inf);
         while(p != NULL){
-            if(strcmp((*p).name, inf) == 0 || strcmp((*p).stn, inf) == 0){ //比对信息
+            if(strcmp(p->name, inf) == 0 || strcmp(p->stn, inf) == 0){ //比对信息
                 printf("\n*******请选择需要修改的部分********" //选择界面
                         "\n a.学号 b.姓名 c.性别 d.成绩 e.全部"
                         "\n请选择对应的数字编号"
@@ -97,39 +97,43 @@ fix(stu *aim)//<2>修改学生数据
                     scanf("%c", &n);
                     switch (n)
                     {
-                    case 'a': printf("\n将学号修改为:"); getchar(); gets((*p).stn); break;
-                    case 'b': printf("\n将姓名修改为:"); getchar(); gets((*p).name); break;
-                    case 'c': printf("\n将性别修改为:"); getchar(); scanf("%c", &(*p).gender); break;
-                    case 'd': printf("\n要修改哪门学科的成绩?1.语文 2.数学 3.外语 4.全部");
+                    case 'a': printf("\n将学号修改为:"); getchar(); gets(p->stn); break;
+                    case 'b': printf("\n将姓名修改为:"); getchar(); gets(p->name); break;
+                    case 'c': printf("\n将性别修改为:"); getchar(); scanf("%c", &p->gender); break;
+                    case 'd': 
                             while(1){
+                                printf("\n要修改哪门学科的成绩?1.语文 2.数学 3.外语 4.全部");
                                 int x = 0;
                                 scanf("%d", &x);
                                 if(x == 4){
                                     printf("\n请输入新的语文,数学和外语成绩:"); 
-                                    scanf("%d %d %d", &(*p).grade[1], &(*p).grade[2], &(*p).grade[3]);
+                                    scanf("%d %d %d", &p->grade[0], &p->grade[1], &p->grade[2]);
                                     break;
                                 }
                                 else if(x == 1){
                                     printf("\n请输入新的语文成绩:");
-                                    scanf("%d", &(*p).grade[1]);
-                                    printf("\n是否需要继续修改成绩?(1/0)");
-                                    if(getchar() == 0){
+                                    scanf("%d", &p->grade[0]);
+                                    printf("\n是否继续修改成绩?(y/n)");
+                                    getchar();
+                                    if(getchar() == 'n'){
                                         break;
                                     }
                                 }
                                 else if(x == 2){
                                     printf("请输入新的数学成绩:");
-                                    scanf("%d", &(*p).grade[2]);
-                                    printf("\n是否需要继续修改成绩?(1/0)");
-                                    if(getchar() == 0){
+                                    scanf("%d", &p->grade[1]);
+                                    printf("\n是否继续修改成绩?(y/n)");
+                                    getchar();
+                                    if(getchar() == 'n'){
                                         break;
                                     }
                                 }
                                 else if(x == 3){
                                     printf("\n请输入新的外语成绩:");
-                                    scanf("%d", &(*p).grade[3]);
-                                    printf("\n是否需要继续修改成绩?(1/0)");
-                                    if(getchar() == 0){
+                                    scanf("%d", &p->grade[2]);
+                                    printf("\n是否继续修改成绩?(y/n)");
+                                    getchar();
+                                    if(getchar() == 'n'){
                                         break;
                                     }
                                 }
@@ -137,39 +141,42 @@ fix(stu *aim)//<2>修改学生数据
                             }
                             break;
                     case 'e': 
-                        printf("\n将学号修改为:"); getchar(); gets((*p).stn);
-                        printf("\n将姓名修改为:"); getchar(); gets((*p).name);
-                        printf("\n将性别修改为:"); getchar(); scanf("%c", &(*p).gender);
+                        printf("\n将学号修改为:"); getchar(); gets(p->stn);
+                        printf("\n将姓名修改为:"); getchar(); gets(p->name);
+                        printf("\n将性别修改为:"); getchar(); scanf("%c", &p->gender);
                         printf("\n要修改哪门学科的成绩?1.语文 2.数学 3.外语 4.全部");
                             while(1){
                                 int x = 0;
                                 scanf("%d", &x);
                                 if(x == 4){
                                     printf("\n请输入新的语文,数学和外语成绩:"); 
-                                    scanf("%d %d %d", &(*p).grade[1], &(*p).grade[2], &(*p).grade[3]);
+                                    scanf("%d %d %d", &p->grade[0], &p->grade[1], &p->grade[2]);
                                     break;
                                 }
                                 else if(x == 1){
                                     printf("\n请输入新的语文成绩:");
-                                    scanf("%d", &(*p).grade[1]);
-                                    printf("\n是否需要继续修改成绩?(1/0)");
-                                    if(getchar() == 0){
+                                    scanf("%d", &p->grade[0]);
+                                    printf("\n是否需要继续修改成绩?(y/n)");
+                                    getchar();
+                                    if(getchar() == 'n'){
                                         break;
                                     }
                                 }
                                 else if(x == 2){
                                     printf("请输入新的数学成绩:");
-                                    scanf("%d", &(*p).grade[2]);
-                                    printf("\n是否需要继续修改成绩?(1/0)");
-                                    if(getchar() == 0){
+                                    scanf("%d", &p->grade[1]);
+                                    printf("\n是否继续修改成绩?(y/n)");
+                                    getchar();
+                                    if(getchar() == 'n'){
                                         break;
                                     }
                                 }
                                 else if(x == 3){
                                     printf("\n请输入新的外语成绩:");
-                                    scanf("%d", &(*p).grade[3]);
-                                    printf("\n是否需要继续修改成绩?(1/0)");
-                                    if(getchar() == 0){
+                                    scanf("%d", &p->grade[2]);
+                                    printf("\n是否继续修改成绩?(y/n)");
+                                    getchar();
+                                    if(getchar() == 'n'){
                                         break;
                                     }
                                 }
@@ -179,7 +186,7 @@ fix(stu *aim)//<2>修改学生数据
                     }
                     break;//跳出while循环
                 }
-            p = (*p).next;
+            p = p->next;
         }
         
         /*test
@@ -187,8 +194,8 @@ fix(stu *aim)//<2>修改学生数据
         stu *new = NULL;
         new = aim;
         while(new != NULL){
-            printf("%s\n", (*new).name);
-            new = (*new).next;
+            printf("%s\n", new->name);
+            new = new->next;
         }
         */
     }
@@ -206,18 +213,18 @@ delete(stu *aim) //<3>删除学生信息
         getchar(); //消耗回车
         gets(tar);
         while(p != NULL){
-            if(strcmp((*p).name, tar) == 0 || strcmp((*p).stn, tar) == 0){
-                printf("\n确定要删除%s号%s的数据吗?(1/0)", (*p).stn, (*p).name);
+            if(strcmp(p->name, tar) == 0 || strcmp(p->stn, tar) == 0){
+                printf("\n确定要删除%s号%s的数据吗?(1/0)", p->stn, p->name);
                 int cf;
                 scanf("%d", &cf);
                 if(cf == 1){
-                    (*p1).next = (*p).next; //链接删除节点的前节点和节点
+                    p1->next = p->next; //链接删除节点的前节点和节点
                     free(p); //释放节点
-                    break; //跳出循环
                 }
+                break;
             }
             p1 = p;
-            p = (*p).next;
+            p = p->next;
         }
 
 /*
@@ -227,8 +234,8 @@ delete(stu *aim) //<3>删除学生信息
         stu *new = NULL;
         new = aim;
         while(new != NULL){
-            printf("%s %s\n", (*new).stn, (*new).name);
-            new = (*new).next;
+            printf("%s %s\n", new->stn, new->name);
+            new = new->next;
         }
 */        
     }
@@ -247,15 +254,15 @@ search(stu *aim) //<4>查询学生成绩
         gets(tar);
         int cf = 0;
         while(p != NULL){
-            if(strcmp((*p).name, tar) == 0 || strcmp((*p).stn, tar) == 0){
+            if(strcmp(p->name, tar) == 0 || strcmp(p->stn, tar) == 0){
                 cf = 1;
                 break;
             }
-            p = (*p).next;
+            p = p->next;
         }
         if(cf == 1){
-            printf("\n%s号%s的成绩为:语文:%d, 数学:%d, 外语:%d", (*p).stn, (*p).name,
-            (*p).grade[1], (*p).grade[2], (*p).grade[3]);            
+            printf("\n%s号%s的成绩为:语文:%d, 数学:%d, 外语:%d", p->stn, p->name,
+            p->grade[0], p->grade[1], p->grade[2]);            
         }
         else{
             printf("\n无该生信息!");
@@ -269,6 +276,7 @@ typedef struct
 }sortstu;
 
 
+
 sort(stu *aim)//<5>学生成绩排名
     {
         int n = 0, n1 = 0, n2 = 0, n3 = 0;
@@ -276,20 +284,49 @@ sort(stu *aim)//<5>学生成绩排名
         stu *p =NULL;
         p = aim;
         while(p != NULL){
-            strcpy(ss[n].nm, (*p).name);
-            for(int i = 1; i < 4; ++i){
-                ss[n].gd[i] = (*p).grade[i];
+            strcpy(ss[n].nm, p->name);
+            for(int i = 0; i < 3; ++i){
+                ss[n].gd[i] = p->grade[i];
                 }
             n++;
-            p = (*p).next;
+            p = p->next;
         }
-
+        //int sum[500] = {0};
+/*
+        printf("\n//////start test///////");
+        for(int i = 0; i < n; ++i){
+            printf("\n%d", ss[i].gd[2]);
+        }
+*/
         printf("\n选择学科排名(a.语文, b.数学, c.外语, d.总成绩):");
         char cf;
+        getchar();
         cf = getchar();
         switch (cf)
         {
             case 'a':
+                for(int i = 0; i < n - 1; ++i){ //冒泡排序
+                    for(int ii = 0; ii < n - 1 - i; ++ii){
+                        if(ss[ii].gd[0] < ss[ii + 1].gd[0]){
+                            //交换分数
+                            int temp = ss[ii].gd[1];
+                            ss[ii].gd[0] = ss[ii + 1].gd[0];
+                            ss[ii + 1].gd[0] = temp;
+
+                            //交换姓名
+                            char t[50];
+                            strcpy(t, ss[ii].nm);
+                            strcpy(ss[ii].nm, ss[ii + 1].nm);
+                            strcpy(ss[ii + 1].nm, t);
+                        }
+                    }
+                }
+                //打印排名
+                for(int i = 0; i < n; ++i){
+                    printf("\n第%d名%s分数:%d", i + 1, ss[i].nm, ss[i].gd[0]);
+                }
+                break;
+            case 'b':
                 for(int i = 0; i < n - 1; ++i){ //冒泡排序
                     for(int ii = 0; ii < n - 1 - i; ++ii){
                         if(ss[ii].gd[1] < ss[ii + 1].gd[1]){
@@ -299,10 +336,10 @@ sort(stu *aim)//<5>学生成绩排名
                             ss[ii + 1].gd[1] = temp;
 
                             //交换姓名
-                            char temp[50];
-                            strcpy(temp, ss[ii].nm);
+                            char t[50];
+                            strcpy(t, ss[ii].nm);
                             strcpy(ss[ii].nm, ss[ii + 1].nm);
-                            strcpy(ss[ii + 1].nm, temp);
+                            strcpy(ss[ii + 1].nm, t);
                         }
                     }
                 }
@@ -311,37 +348,153 @@ sort(stu *aim)//<5>学生成绩排名
                     printf("\n第%d名%s分数:%d", i + 1, ss[i].nm, ss[i].gd[1]);
                 }
                 break;
+
+            case 'c':
+                for(int i = 0; i < n - 1; ++i){ //冒泡排序
+                    for(int ii = 0; ii < n - 1 - i; ++ii){
+                        if(ss[ii].gd[2] < ss[ii + 1].gd[2]){
+                            //交换分数
+                            int temp = ss[ii].gd[2];
+                            ss[ii].gd[2] = ss[ii + 1].gd[2];
+                            ss[ii + 1].gd[2] = temp;
+
+                            //交换姓名
+                            char t[50];
+                            strcpy(t, ss[ii].nm);
+                            strcpy(ss[ii].nm, ss[ii + 1].nm);
+                            strcpy(ss[ii + 1].nm, t);
+                        }
+                    }
+                }
+                //打印排名
+                for(int i = 0; i < n; ++i){
+                    printf("\n第%d名%s分数:%d", i + 1, ss[i].nm, ss[i].gd[2]);
+                }
+                break;
+
+            case 'd':{
+                int sum[500] = {0};
+                for(int i = 0; i < n; ++i){
+                    sum[i] = ss[i].gd[0] + ss[i].gd[1] + ss[i].gd[2];
+                }
+                for(int i = 0; i < n - 1; ++i){ //冒泡排序
+                    for(int ii = 0; ii < n - 1 - i; ++ii){
+                        if(sum[ii] < sum[ii + 1]){
+                            //交换分数
+                            int temp = sum[ii];
+                            sum[ii] = sum[ii + 1];
+                            sum[ii + 1] = temp;
+
+                            //交换姓名
+                            char t[50];
+                            strcpy(t, ss[ii].nm);
+                            strcpy(ss[ii].nm, ss[ii + 1].nm);
+                            strcpy(ss[ii + 1].nm, t);
+                        }
+                    }
+                }
+                //打印排名
+                for(int i = 0; i < n; ++i){
+                    printf("\n第%d名%s分数:%d", i + 1, ss[i].nm, sum[i]);
+                }
+                break;}
         }
     }
+
+
+
+
+display(stu *aim)//<6>显示所有学生
+    {
+        stu *p = NULL;
+        p = aim;
+        while(p != NULL){
+            printf("\n%s号%s信息: ", p->stn, p->name);
+            if(p->gender == 'm'){
+                printf("性别: 男 ");
+            }
+            else if(p->gender == 'f'){
+                printf("性别: 女 ");
+            }
+            printf("成绩: 语文: %d, 数学: %d, 外语: %d", 
+            p->grade[0], p->grade[1], p->grade[2]);
+            p = p->next;
+        }
+    }
+
+
+
+
+
+
+void clr()//<7>刷新系统页面
+    {
+        system("CLS");
+        menu();
+    }
+
+
+
+
 
 int main()
     {
         system("color 9F");// 设置cmd 字体为亮白色， 背景为淡蓝色
+        
+        FILE *fp = NULL;
+        fp = fopen("stu.txt", "at+"); //以读/写方式打开一个文本文件，允许读或在文本末追加数据；若文件不存在，则会建立该文件。
+        
         menu();
         stu *aim = NULL;
         //printf("\n%d\n", choose()); test choose
-        int num = 8;
+        int num = 9;
         while(1){
         //menu();
         printf("\n键入对应的数字编号选择对应功能:");
         scanf("%d", &num);
-        if(num == 8){
+        if(num == 9){
+            //写入文件
+            stu *tar = NULL;
+            tar = aim;
+            while(tar != NULL){
+                fprintf(fp, "%s %s %c %d %d %d", 
+                tar->stn, tar->name, tar->gender,
+                tar->grade[0], tar->grade[1], tar->grade[2]);
+                if(tar->next != NULL){
+                    fprintf(fp, "\n");
+                }
+                tar = tar->next;
+            }
+            fclose(fp);
+
             break;
         }
         
             switch (num) //选择功能
             {
-            case 1: aim = creat(); getchar();/* printf("\n%p", aim)*/; break;
+            case 1: aim = creat();/*getchar();/* printf("\n%p", aim)*/; break;
             case 2: fix(aim); getchar(); break;
             case 3: delete(aim); getchar(); break;
             case 4: search(aim); getchar(); break;
-            case 5: break;
-            case 6: break;
-            case 7: break;
+            case 5: sort(aim); getchar(); break;
+            case 6: display(aim); getchar(); break;
+            case 7: clr(); getchar(); break;
+            case 8:getchar();break;
             default: getchar(); printf("\n无效输入!"); break;
             }
-            
+
+
+
         }
-        
+        free(aim);
         return 0;
+    }
+
+
+read(FILE *p, stu *head)
+    {
+        FILE *fp = NULL;
+        fp = p;
+        stu *tar = NULL;
+        tar = head;
     }
