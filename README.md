@@ -10,4 +10,6 @@ change and upload some Cvs files.
 
 // 2022/06/21 upload Myweb(HTML CSS and Js).
 
-// 2022/06/27 upload my student maange system with C.  
+// 2022/06/27 upload my student manage system with C.  
+
+// 2022/06/30 upload student manage system adding file-i/o , it's the Definitive Edition.
