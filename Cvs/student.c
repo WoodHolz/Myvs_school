@@ -21,43 +21,80 @@ typedef struct student
     struct student *next;
 }stu;
 
-creat() //<1>添加学生数据
+stu * creat(stu *tar) //<1>添加学生数据
     {
         stu *head, *p1, *p2;
         //struct student *head, *p1, *p2;
-        head = NULL; 
-        while(1){
-            p1 = (stu *)malloc(sizeof(stu)); //分配内存空间 
-            //p1 = (struct student *)malloc(sizeof(struct student));
-            //输入数据
-            printf("\n请输入学号:");
-            scanf("%s", p1->stn);
-            getchar();
-            printf("\n请输入名字:");
-            gets(p1->name);
-            printf("\n请输入性别(m/f):");
-            scanf("%c", &p1->gender);
-            printf("\n请输入语文,数学,外语成绩:");
-            scanf("%d %d %d", &p1->grade[0], &p1->grade[1], &p1->grade[2]);
-            if(head == NULL){
-                head = p1;
-                p2 = p1;
+        head = tar;
+        if(head == NULL){//判断文件是否已有数据
+            while(1){
+                p1 = (stu *)malloc(sizeof(stu)); //分配内存空间 
+                //p1 = (struct student *)malloc(sizeof(struct student));
+                p1->next = NULL;
+                //输入数据
+                printf("\n请输入学号:");
+                scanf("%s", p1->stn);
+                getchar();
+                printf("\n请输入名字:");
+                gets(p1->name);
+                printf("\n请输入性别(m/f):");
+                scanf("%c", &p1->gender);
+                printf("\n请输入语文,数学,外语成绩:");
+                scanf("%d %d %d", &p1->grade[0], &p1->grade[1], &p1->grade[2]);
+                if(head == NULL){
+                    head = p1;
+                    p2 = p1;
+                }
+                else{
+                    p2->next = p1;
+                    p2 = p1;
+                }
+
+
+                printf("\n是否继续输入(1/0):");
+                int jd;
+                scanf("%d", &jd);
+                if(jd == 0){
+                    
+                    //p2->next = NULL;
+                    break;
+                    
+                }            
             }
-            else{
+        }
+        else{
+            p2 = tar;
+            while(p2->next != NULL){//指向结尾的结点
+                p2 = p2->next;
+            }
+            while(1){
+                p1 = (stu *)malloc(sizeof(stu)); //分配内存空间 
+                p1->next = NULL;
+                //p1 = (struct student *)malloc(sizeof(struct student));
+                //输入数据
+                printf("\n请输入学号:");
+                scanf("%s", p1->stn);
+                getchar();
+                printf("\n请输入名字:");
+                gets(p1->name);
+                printf("\n请输入性别(m/f):");
+                scanf("%c", &p1->gender);
+                printf("\n请输入语文,数学,外语成绩:");
+                scanf("%d %d %d", &p1->grade[0], &p1->grade[1], &p1->grade[2]);
+                
                 p2->next = p1;
                 p2 = p1;
+                
+                printf("\n是否继续输入(1/0):");
+                int jd;
+                scanf("%d", &jd);
+                if(jd == 0){
+                    
+                    //p2->next = NULL;
+                    break;
+                    
+                }            
             }
-
-
-            printf("\n是否继续输入(1/0):");
-            int jd;
-            scanf("%d", &jd);
-            if(jd == 0){
-                
-                p2->next = NULL;
-                break;
-                
-            }            
         }
 
         /*test
@@ -72,13 +109,13 @@ creat() //<1>添加学生数据
         
         //printf("\n%p", head);
         return (head);
-        free(p1);
+        //free(p1);
     }
 
 
 
 
-fix(stu *aim)//<2>修改学生数据
+void fix(stu *aim)//<2>修改学生数据
     {
         stu *p = NULL;
         p = aim;
@@ -202,12 +239,12 @@ fix(stu *aim)//<2>修改学生数据
 
 
 
-delete(stu *aim) //<3>删除学生信息
+stu * delete(stu *aim) //<3>删除学生信息
     {
 
         stu *p = NULL, *p1 = NULL;
         p = aim;
-        p1 = p;
+        p1 = aim;
         printf("\n请输入要删除的学生学号或姓名:");
         char tar[50] = {0};
         getchar(); //消耗回车
@@ -217,10 +254,18 @@ delete(stu *aim) //<3>删除学生信息
                 printf("\n确定要删除%s号%s的数据吗?(1/0)", p->stn, p->name);
                 int cf;
                 scanf("%d", &cf);
-                if(cf == 1){
-                    p1->next = p->next; //链接删除节点的前节点和节点
-                    free(p); //释放节点
-                }
+                    if(cf == 1){
+                        if(p != p1){
+                            p1->next = p->next; //链接删除节点的前节点和节点
+                            free(p); //释放节点
+                        }
+                        else{
+                            p = p->next;
+                            free(p1);
+                            p1 = NULL;
+                            return p;
+                        }
+                    }
                 break;
             }
             p1 = p;
@@ -244,7 +289,7 @@ delete(stu *aim) //<3>删除学生信息
 
 
 
-search(stu *aim) //<4>查询学生成绩
+void search(stu *aim) //<4>查询学生成绩
     {
         stu *p = NULL;
         p = aim;
@@ -277,7 +322,7 @@ typedef struct
 
 
 
-sort(stu *aim)//<5>学生成绩排名
+void sort(stu *aim)//<5>学生成绩排名
     {
         int n = 0, n1 = 0, n2 = 0, n3 = 0;
         sortstu ss[500];
@@ -309,7 +354,7 @@ sort(stu *aim)//<5>学生成绩排名
                     for(int ii = 0; ii < n - 1 - i; ++ii){
                         if(ss[ii].gd[0] < ss[ii + 1].gd[0]){
                             //交换分数
-                            int temp = ss[ii].gd[1];
+                            int temp = ss[ii].gd[0];
                             ss[ii].gd[0] = ss[ii + 1].gd[0];
                             ss[ii + 1].gd[0] = temp;
 
@@ -323,7 +368,7 @@ sort(stu *aim)//<5>学生成绩排名
                 }
                 //打印排名
                 for(int i = 0; i < n; ++i){
-                    printf("\n第%d名%s分数:%d", i + 1, ss[i].nm, ss[i].gd[0]);
+                    printf("\n%s分数:%d", ss[i].nm, ss[i].gd[0]);
                 }
                 break;
             case 'b':
@@ -345,7 +390,7 @@ sort(stu *aim)//<5>学生成绩排名
                 }
                 //打印排名
                 for(int i = 0; i < n; ++i){
-                    printf("\n第%d名%s分数:%d", i + 1, ss[i].nm, ss[i].gd[1]);
+                    printf("\n%s分数:%d", ss[i].nm, ss[i].gd[1]);
                 }
                 break;
 
@@ -368,7 +413,7 @@ sort(stu *aim)//<5>学生成绩排名
                 }
                 //打印排名
                 for(int i = 0; i < n; ++i){
-                    printf("\n第%d名%s分数:%d", i + 1, ss[i].nm, ss[i].gd[2]);
+                    printf("\n%s分数:%d", ss[i].nm, ss[i].gd[2]);
                 }
                 break;
 
@@ -395,7 +440,7 @@ sort(stu *aim)//<5>学生成绩排名
                 }
                 //打印排名
                 for(int i = 0; i < n; ++i){
-                    printf("\n第%d名%s分数:%d", i + 1, ss[i].nm, sum[i]);
+                    printf("\n%s分数:%d", ss[i].nm, sum[i]);
                 }
                 break;}
         }
@@ -404,7 +449,7 @@ sort(stu *aim)//<5>学生成绩排名
 
 
 
-display(stu *aim)//<6>显示所有学生
+void display(stu *aim)//<6>显示所有学生
     {
         stu *p = NULL;
         p = aim;
@@ -437,15 +482,64 @@ void clr()//<7>刷新系统页面
 
 
 
+stu * read()
+    {
+        FILE *fp = NULL;
+        fp = fopen("stu.txt", "r");
+        stu *head = NULL, *tar = NULL, *s = NULL;
+        while(1){
+            if(EOF != fgetc(fp)){
+                tar = (stu *)malloc(sizeof(stu));
+                tar->next = NULL;
+                fscanf(fp, "%7s %7s %7c %8d %7d %7d", 
+                tar->stn, tar->name, &tar->gender,
+                &tar->grade[0], &tar->grade[1], &tar->grade[2]);
+                if(head == NULL){
+                    head = tar;
+                    s = tar;
+                }
+                else{
+                    s->next = tar;
+                    s = tar;
+                }
+            }
+            else break;
+        }
+        //s->next = NULL;
+        //tar->next = NULL;
+        tar = NULL;
+        s = NULL;
+        fclose(fp);
+        return(head);
+        //free(tar); 
+    }
+
+void destory(stu * aim)
+    {
+        stu * p = NULL;
+        while(aim != NULL){
+            p = aim;
+            aim = aim->next;
+            free(p);
+            p = NULL;
+        }
+    }
+
+
+
+
+
 int main()
     {
-        system("color 9F");// 设置cmd 字体为亮白色， 背景为淡蓝色
+        system("color 9F");// 设置cmd背景为淡蓝色,字体为亮白色
         
-        FILE *fp = NULL;
-        fp = fopen("stu.txt", "at+"); //以读/写方式打开一个文本文件，允许读或在文本末追加数据；若文件不存在，则会建立该文件。
         
-        menu();
+        
+        
+        
         stu *aim = NULL;
+        aim = read();
+        menu();
         //printf("\n%d\n", choose()); test choose
         int num = 9;
         while(1){
@@ -454,10 +548,12 @@ int main()
         scanf("%d", &num);
         if(num == 9){
             //写入文件
+            FILE *fp = NULL;
+            fp = fopen("stu.txt", "w");
             stu *tar = NULL;
             tar = aim;
             while(tar != NULL){
-                fprintf(fp, "%s %s %c %d %d %d", 
+                fprintf(fp, "%7s %7s %7c %8d %7d %7d", 
                 tar->stn, tar->name, tar->gender,
                 tar->grade[0], tar->grade[1], tar->grade[2]);
                 if(tar->next != NULL){
@@ -466,35 +562,26 @@ int main()
                 tar = tar->next;
             }
             fclose(fp);
-
             break;
         }
         
             switch (num) //选择功能
             {
-            case 1: aim = creat();/*getchar();/* printf("\n%p", aim)*/; break;
-            case 2: fix(aim); getchar(); break;
-            case 3: delete(aim); getchar(); break;
-            case 4: search(aim); getchar(); break;
-            case 5: sort(aim); getchar(); break;
-            case 6: display(aim); getchar(); break;
-            case 7: clr(); getchar(); break;
-            case 8:getchar();break;
-            default: getchar(); printf("\n无效输入!"); break;
+            case 1: aim = creat(aim);/*getchar();/* printf("\n%p", aim)*/; break;
+            case 2: fix(aim); /*getchar();*/ break;
+            case 3: aim = delete(aim);/* getchar()*/; break;
+            case 4: search(aim);/* getchar();*/ break;
+            case 5: sort(aim);/* getchar();*/ break;
+            case 6: display(aim);/* getchar();*/ break;
+            case 7: clr(); /*getchar();*/ break;
+            case 8: destory(aim); aim = NULL;/* getchar();*/break;
+            default: /*getchar();*/ printf("\n无效输入!"); break;
             }
-
-
-
         }
-        free(aim);
+        destory(aim);
+        aim = NULL;
         return 0;
     }
 
 
-read(FILE *p, stu *head)
-    {
-        FILE *fp = NULL;
-        fp = p;
-        stu *tar = NULL;
-        tar = head;
-    }
+
